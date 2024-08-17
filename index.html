@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addy's Hotdog Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #2a2a2a;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        h1 {
+            color: #ff6b6b;
+        }
+        #hotdogCount {
+            font-size: 4rem;
+            margin: 1rem 0;
+            color: #4ecdc4;
+        }
+        button {
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            cursor: pointer;
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff8787;
+        }
+        #message {
+            margin-top: 1rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Addy's Hotdog Tracker</h1>
+        <div id="hotdogCount">0</div>
+        <button onclick="addHotdog()">Nom a Hotdog!</button>
+        <button onclick="resetCount()">Reset</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        let hotdogCount = 0;
+        const messages = [
+            "Wow, Addy! You're on a roll!",
+            "Hot diggity dog!",
+            "You're the wiener in this game!",
+            "Frankly, I'm impressed!",
+            "You're on a bun-believable streak!",
+            "Ketchup if you can!",
+            "Mustard you eat so many?",
+            "Relish the moment!",
+            "You're a real hot dog hero!",
+            "Bun appetite!"
+        ];
+
+        function addHotdog() {
+            hotdogCount++;
+            updateDisplay();
+            showMessage();
+        }
+
+        function resetCount() {
+            hotdogCount = 0;
+            updateDisplay();
+            document.getElementById('message').textContent = "Starting fresh! Ready for more dogs?";
+        }
+
+        function updateDisplay() {
+            document.getElementById('hotdogCount').textContent = hotdogCount;
+        }
+
+        function showMessage() {
+            const messageElement = document.getElementById('message');
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            messageElement.textContent = randomMessage;
+        }
+    </script>
+</body>
+</html>
